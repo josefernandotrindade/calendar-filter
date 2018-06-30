@@ -4,12 +4,11 @@
   </div>
 </template>
 
-
 <script>
-import CalMonth from './CalMonth.vue';
+import CalMonth from "./CalMonth.vue";
 
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   components: {
     CalMonth
   },
@@ -30,20 +29,25 @@ export default {
   },
   created: function() {
     var today = new Date();
-      this.months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    this.months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
     this.year = today.getFullYear();
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .calendar {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    font-size: 12px;
-    margin: 0 auto;
-  }
+.calendar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+.month {
+  align-content: space-between;
+  flex-grow: 0;
+}
 </style>
