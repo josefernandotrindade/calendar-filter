@@ -42,7 +42,7 @@ export default {
 		let endOfMonth = new Date(curYear, curMonth + 1, 0);
 		let day = new Date(curYear, curMonth, 1);
 
-		while(day.getDate() < endOfMonth.getDate()) {
+		for(let dayNumber=1; dayNumber <= endOfMonth.getDate(); dayNumber++) {
 			// Gerar span com o dia actual
 			children.push(createElement('a', {
 				'domProps': {
@@ -57,9 +57,7 @@ export default {
 						'click': this.testaclick
 					}
 				}, 
-				day.getDate()));
-
-				day.setDate(day.getDate() + 1);
+				dayNumber < 10 ? `0${dayNumber}` :dayNumber));
 		}
 
 		// Padding para fazer o próximo mês começar na linha seguinte
@@ -76,7 +74,6 @@ export default {
 </script>
 
 <style scoped>
-
 h3 {
   margin: 40px 0 0;
 }
@@ -93,14 +90,14 @@ a {
 }
 .month {
   display: flex;
-  width: 350px;
+  width: 300px;
   justify-content:flex-start;
   flex-direction: row;
   flex-wrap:wrap;
-  border:1px solid blue;
 	align-content: space-between;
 	flex-grow: 1;
 	padding: 20px;
+	box-sizing: border-box;
 }
 
 .day {
@@ -109,7 +106,7 @@ a {
   height: 25px;
   line-height: 24px;
   align-content: stretch;
-  text-align: right;
+  text-align: center;
 }
 
 .day.grow {
@@ -121,5 +118,4 @@ a {
 .day.past {
   color: red;
 }
-
 </style>

@@ -39,12 +39,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .calendar {
-    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
     font-size: 12px;
-    margin: 0 50px;
+    margin: 0 auto;
   }
 </style>
