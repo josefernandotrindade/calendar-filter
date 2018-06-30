@@ -88,7 +88,7 @@ a {
   flex-direction: row;
   flex-wrap:wrap;
 	align-content: space-between;
-	flex-grow: 1;
+	flex-grow: 0;
 	padding: 20px;
 	box-sizing: border-box;
 }
@@ -96,8 +96,8 @@ a {
 .day {
   width: calc(100% / 7);
   box-sizing: border-box;
-  height: 25px;
-  line-height: 24px;
+  height: 20px;
+  line-height: 20px;
   align-content: stretch;
   text-align: center;
 }

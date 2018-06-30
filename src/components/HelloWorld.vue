@@ -40,7 +40,7 @@ export default {
 <style scoped>
   .calendar {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: stretch;
     flex-wrap: wrap;
     font-size: 12px;
