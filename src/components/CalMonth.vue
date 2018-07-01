@@ -21,7 +21,8 @@ export default {
     }
   },
   render: function(createElement) {
-    let children = [];
+		let children = [];
+		let today = new Date();
     let startDate = new Date(this.year, this.month, 1); // primeiro dia do mês
     let endOfMonth = new Date(this.year, this.month + 1, 0); // fim do mês
     let endOfPreviousMonth = new Date(this.year, this.month, 0); // fim do mês anterior
@@ -42,14 +43,34 @@ export default {
     }
 
     for (let dayNumber = 1; dayNumber <= endOfMonth.getDate(); dayNumber++) {
-      // Gerar span com o dia actual
+				let classes = ['day'];
+
+			// gerar o dia para efeitos de cálculo
+			let day = new Date(this.year, this.month, dayNumber);
+
+			// validar se é um finm-de-semana
+			if (day.getDay() === 0 || day.getDay() === 6) {
+				classes.push('weekend');
+			}
+
+			// validar se este é do dia 
+			console.log(day, today);
+			if (day.toLocaleDateString() == today.toLocaleDateString()) {
+				classes.push('today');
+			}
+
+			// validar se é uma data no passado
+			if (day < today) {
+				classes.push('past');
+			}
+
       children.push(
         createElement( "a",
           {
             attrs: {
               href: "#"
             },
-            class: "day",
+            class: classes.join(' '),
             on: {
               click: this.testaclick
             }
@@ -76,6 +97,7 @@ export default {
 <style scoped>
 a {
   color: #42b983;
+	text-decoration: none;
 }
 
 .month {
@@ -103,11 +125,16 @@ a {
   font-weight: bold;
 }
 
-.day.past {
-  color: red;
+.day.weekend {
+  color: silver;
 }
 
-.day.current {
+.day.past {
   color: blue;
+}
+
+.day.today {
+  color: red;
+	font-weight: bold;
 }
 </style>
