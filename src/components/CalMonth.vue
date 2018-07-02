@@ -34,7 +34,7 @@ export default {
 
     // Gerar linha de header com os nomes dos dias da semana
     for (var weekDay of weekDayNames) {
-      children.push(createElement("span", { class: "day" }, weekDay));
+      children.push(createElement("span", { class: "day header" }, weekDay));
     }
 
     // Padding até ao dia da semana correspondente ao início do mês actual
@@ -94,12 +94,7 @@ export default {
 };
 </script>
 
-<style scoped>
-a {
-  color: #42b983;
-	text-decoration: none;
-}
-
+<style scoped lang="scss">
 .month {
   display: flex;
   justify-content: flex-start;
@@ -108,33 +103,54 @@ a {
   box-sizing: border-box;
 	width: 300px;
 	padding: 20px;
-}
 
-.day {
-  width: calc(100% / 7);
-  box-sizing: border-box;
-  align-content: stretch;
-  line-height: 20px;
-  text-align: center;
-}
+  .day {
+    width: calc(100% / 7);
+    box-sizing: border-box;
+    align-content: stretch;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #42b983;
+    position: relative;
 
-.day.grow {
-  width: 100%;
-  flex-grow: 7;
-  text-align: center;
-  font-weight: bold;
-}
+    &.header {
+      color: #2c3e50;
+    }
 
-.day.weekend {
-  color: silver;
-}
+    &.grow {
+      width: 100%;
+      flex-grow: 7;
+      text-align: center;
+      font-weight: bold;
+      color: #2c3e50;
+    }
 
-.day.past {
-  color: blue;
-}
+    &.weekend {
+      color: #2c3e50;
+    }
 
-.day.today {
-  color: red;
-	font-weight: bold;
+    &.past {
+      color: #4283b9;
+    }
+
+    &.today {
+      color: white;
+      
+      &:before {
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #42b983;
+        z-index: -1;
+      }
+    }
+  }
 }
 </style>

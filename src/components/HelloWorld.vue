@@ -33,7 +33,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .calendar {
   display: flex;
   justify-content: center;
@@ -43,11 +43,11 @@ export default {
   margin: 0 auto;
   width: 100%;
   clear: both;
-}
 
-.month {
-  align-content: space-between;
-  flex-grow: 0;
+  .month {
+    align-content: space-between;
+    flex-grow: 0;
+  }
 }
 
 @media screen and (min-width: 300px) {
